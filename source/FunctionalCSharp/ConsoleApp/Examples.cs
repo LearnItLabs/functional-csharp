@@ -6,10 +6,10 @@ namespace ConsoleApp
 {
 public	class Examples
 	{
-		// Fix impure function by refactoring to only work
-		// with parameters passed into the function 
+		// Refactor the impure function to work 
+		// exclusively with its input parameters.
 
-		// also this code is not easily testable
+		// This makes the code more testable.
 		public DateTime GetCurrentTimeRoundedUpToCustomMinuteInterval(int interval, 
 																																	DateTime startTime)
 		{
