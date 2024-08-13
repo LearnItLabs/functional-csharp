@@ -13,7 +13,7 @@ namespace ConsoleApp
 		// they compute an output value based solely on their input values.
 		// They perform no other actions in the code.
 
-		public decimal CalcDiscount(decimal amount, decimal discountRate)
+		public decimal CalculateDiscount(decimal amount, decimal discountRate)
 		{
 			return amount * (1 - discountRate);
 		}
