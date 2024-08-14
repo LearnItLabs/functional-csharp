@@ -12,3 +12,4 @@ jobs:
         uses: planetoftheweb/copy-to-branches@v1.2
         env:
           key: main
+          files: README.md NOTICE CONTRIBUTING.md LICENSE
