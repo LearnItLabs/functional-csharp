@@ -1,6 +1,7 @@
 # Advanced C#: Functional Programming Patterns
 ### Explore functional patterns in C#
 This is the repository for the LinkedIn Learning course *Advanced C#: Functional Programming Patterns*. The full course is available from [LinkedIn Learning][lil-course-url].
+![banner](https://github.com/LearnItLabs/SiteAssets/blob/78fc8d3e6156de51b8c8cbff35e1e60e7b53b7b9/GitHubBanner.png)
 
 ### Description
 Functional programming offers developers a straightforward way to tackle modern software problems like massive scale, distributed systems, and multiple threaded runtimes. Microsoft created the F# functional language to address this problem space and along the way they also introduced many FP features to C#. 
