@@ -18,5 +18,9 @@ namespace ConsoleApp
 			return amount * (1 - discountRate);
 		}
 
+		public double CalculateRectArea(double width, double height) {
+			return width * height;
+		}
+	
 	}
 }

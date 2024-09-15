@@ -34,5 +34,20 @@ namespace UnitTests {
 			Assert.AreEqual(salesAmount , result1);
 		
 		}
+
+		[TestMethod]
+		public void ReturnArea_WhenValidArgs() {
+			// arrange
+			var examples = new Examples();
+			double width = 10;
+			double height = 20;
+			// act
+			var area = examples.CalculateRectArea(width, height);
+
+
+			// assert
+			Assert.AreEqual(expected: 200, actual: area);
+
+		}
 	}
 }
