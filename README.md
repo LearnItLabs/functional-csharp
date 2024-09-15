@@ -1,26 +1,40 @@
-# Explore functional patterns in C#
-This is the repository for the LinkedIn Learning course **Explore functional patterns in C#**. The full course is available from [LinkedIn Learning](LICOURSEURL).
+# Advanced C#: Functional Programming Patterns
+### Explore functional patterns in C#
+This is the repository for the LinkedIn Learning course *Advanced C#: Functional Programming Patterns*. The full course is available from [LinkedIn Learning][lil-course-url].
+![banner](https://github.com/LearnItLabs/SiteAssets/blob/78fc8d3e6156de51b8c8cbff35e1e60e7b53b7b9/GitHubBanner.png)
 
-## Description
+### Description
+Functional programming offers developers a straightforward way to tackle modern software problems like massive scale, distributed systems, and multiple threaded runtimes. Microsoft created the F# functional language to address this problem space and along the way they also introduced many FP features to C#. 
 
-Functional programming (FP) languages are well equipped to handle modern software problems like massive scale, distributed systems and multiple threaded runtimes. Microsoft created the F# functional language to address this problem space and along the way they also introduced many FP features to C#. In this course we’ll look at how to exploit these new features, such as higher order functions and immutability to add functional programming to your code.
+Curious about how to work functional programming patterns into your .NET applications? In this course, Walt Ritscher shows you how. Discover how to leverage the functional programming features in C# to transform your code. Walt covers key topics such as immutability, higher-order functions, and why expressions are better for functional programs. Plus, learn how to compose function flow in C# using pipelining; work with functional programming concepts like map, filter and bind in LINQ; and more.
 
 ## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+This repository contains example code for most of the videos in the course, organized into branches.
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `master` branch holds the final state of the code when in the course.
+You can use the branch pop up menu in github to switch to a specific branch and view the code at that stage of the course. Alternatively, you can directly access a specific branch by adding `/tree/BRANCH_NAME` to the URL.
+## Branches in Visual Studio
+While following along with the course, you can use Visual Studio's Git tools to switch between branches. This allows you to easily move to the relevant chapter and topic as you progress through the course. 
+
+## Branch Names
+The branches are structured to correspond to the chapters in the course. Each branch is named using the format `Chapter#-Topic-Name`. For example, the branch named `02-Avoid-SideEffects` corresponds to the second chapter of the course, which includes a video on avoiding side effects in functional programming. 
+
+To determine which branch to open, refer to the popup displayed at the start of each video.
+
 
 ## Installing  
 To use these exercise files, follow the instructions in the course to learn how to work with GitHub content.
-For this course the instructor uses Visual Studio 2019, any edition is sufficient (Community, Professional, Enterprise). 
+For this course the instructor uses Visual Studio, any edition or version is sufficient (Community, Professional, Enterprise). 
 
 
 ## About our .NET courses
 When you are ready to [learn more about .NET](https://www.linkedin.com/learning/search?entityType=COURSE&keywords=.net) or [Visual Studio](https://www.linkedin.com/learning/search?entityType=COURSE&keywords=visual%20studio), **LinkedIn Learning** has what you need. 
 
 ## About the Instructor - Walt Ritscher
-Check out my [other courses](https://www.linkedin.com/learning/instructors/walt-ritscher) on LinkedIn Learning.  Follow me on [LinkedIn](https://www.linkedin.com/in/waltritscher/?trk=lil_course) and [Twitter](https://twitter.com/waltritscher). 
+Learn-it Labs is a boutique video training company based in the Seattle area. Founded by Walt Ritscher, a long-time LinkedIn Learning staff instructor, Learn-it Labs is dedicated to creating world-class, video-based courses on a wide range of technology topics.
 
-![Walt Ritscher Headshot](https://38ydkq.dm.files.1drv.com/y4moADNYVNnmGDQCVwkufdGJmbpNZ-ym19j09TtRSOJpMSRFbMVFrRsM7DNZ5DRAY6tb1zsk_Df8ESybhbWypqCa8DXTuGbo4oAYE36t27l2LRgiGL42VVKEksULNm076nZQRfaL_Ew2cDw0V8IwcoztB46_RSn6biJd33elOHTDlDC6jy5kdTc7P8HW_F6TdSb?width=461&height=461&cropmode=none)
+Check out Walt's [other courses](https://www.linkedin.com/learning/instructors/walt-ritscher) on LinkedIn Learning.  Follow on [LinkedIn](https://www.linkedin.com/in/waltritscher/?trk=lil_course) and [Twitter](https://twitter.com/waltritscher). 
+
+![Advanced C#: Functional Programming Patterns][lil-thumbnail-url] 
+
+[lil-course-url]: https://www.linkedin.com/learning/advanced-c-sharp-functional-programming-patterns
+[lil-thumbnail-url]: https://cdn.lynda.com/course/2833002/2833002-1596810241957-16x9.jpg
