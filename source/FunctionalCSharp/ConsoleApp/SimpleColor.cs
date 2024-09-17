@@ -16,7 +16,7 @@ namespace ConsoleApp {
 			Blue = blue;
 		}
 		// Property to set or calculate and return the Hex value of the color
-		public string Hex
+		public string HexValue
 		{
 			get
 			{
