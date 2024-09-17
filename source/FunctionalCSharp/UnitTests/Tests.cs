@@ -12,7 +12,7 @@ namespace UnitTests {
 			var hexValue = "#0980FF";
 
 			// act
-			var result = sColor.Hex;
+			var result = sColor.HexValue;
 			// assert
 
 			Assert.AreEqual(hexValue, result );
@@ -28,8 +28,8 @@ namespace UnitTests {
 			var hexValue = "#0980FF";
 
 			// act
-			sColor.Hex = hexValue;
-			var result = sColor.Hex;
+			sColor.HexValue = hexValue;
+			var result = sColor.HexValue;
 			// assert
 
 			Assert.AreEqual(hexValue, result);
