@@ -4,7 +4,7 @@ using System.Globalization;
 namespace ConsoleApp {
 	public class SimpleColor {
 
-		// Mutable fields
+		// Mutable backing fields, via properties.
 		public byte Red { get; set; }
 		public byte Green { get; set; }
 		public byte Blue { get; set; }
