@@ -14,10 +14,6 @@ namespace ConsoleApp
 			RunPrime();
 		}
 
-
-
-
-
 		#region If Statements
 		private void RunIf() {
 			var currentProduct = new Product(productName: "Microphone", retailPrice: 200M);
