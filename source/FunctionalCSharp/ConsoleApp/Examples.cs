@@ -15,6 +15,7 @@ namespace ConsoleApp
 		}
 
 		#region If Statements
+
 		private void RunIf() {
 			var currentProduct = new Product(productName: "Microphone", retailPrice: 200M);
 			var salePriceA = GetProductPrice(product: currentProduct, 
