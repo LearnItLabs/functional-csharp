@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 
@@ -7,17 +8,23 @@ namespace ConsoleApp
 {
 	class Examples
 	{
-		public void DoWork()
-		{
+		public void DoWork() {
+			RunIf();
+			RunEndWith();
+			RunPrime();
+		}
 
 
+
+
+
+		#region If Statements
+		private void RunIf() {
 			var currentProduct = new Product(productName: "Microphone", retailPrice: 200M);
 			var salePriceA = GetProductPrice(product: currentProduct, quantity: 12, isPremiumCustomer: true);
 
 			var salePriceB = GetProductPriceByExpression(product: currentProduct, quantity: 12, isPremiumCustomer: true);
 		}
-
-		#region If Statements
 		public decimal GetProductPrice(Product product, int quantity, bool isPremiumCustomer)
 		{
 			// statement version
@@ -53,6 +60,7 @@ namespace ConsoleApp
 
 		}
 		#endregion
+
 		#region Switch Statements
 
 		public string GetColorHex(StandardColors colors)
@@ -105,6 +113,53 @@ namespace ConsoleApp
 		}
 
 		#endregion
+
+		#region ForEach
+
+		public void RunEndWith() {
+			List<int> targetNumbers = new List<int> { 14, 23, 37, 49 };
+			// Generates numbers from 100 to 999
+			List<int> allNumbers = Enumerable.Range(100, 900).ToList();
+			var results1 = GetNumberEndingWith(targetNumbers, allNumbers);
+			var results2 = GetNumberEndingWithExpression(targetNumbers, allNumbers);
+		}
+		public List<int> GetNumberEndingWith(List<int> targetNumbers, List<int> allNumbers) {
+			List<int> matchingNumbers = new List<int>();
+
+			foreach (var number in allNumbers)
+			{
+				foreach (var target in targetNumbers)
+				{
+					if (number % 100 == target) // Check if the number ends with the target number
+					{
+						matchingNumbers.Add(number);
+						break; // Break to avoid adding the same number multiple times
+					}
+				}
+			}
+			return matchingNumbers;
+		}
+
+		public List<int> GetNumberEndingWithExpression(List<int> targetNumbers, List<int> allNumbers) {
+			return allNumbers
+				.Where(number => targetNumbers.Any(target => number % 100 == target))
+				.ToList();
+		}
+
+		#endregion
+
+		#region IsPrime
+		private void RunPrime() {
+			var q = from allNumber in Enumerable.Range(1, 1000)
+							where IsPrime(allNumber)
+							select allNumber;
+			var result = q.ToList();
+		}
+		bool IsPrime(int number) => number > 1 && Enumerable
+														.Range(2, (int)Math.Sqrt(number) - 1)
+														.All(divisor => number % divisor != 0);
+		#endregion
+
 		#region Types
 		public enum StandardColors
 		{
