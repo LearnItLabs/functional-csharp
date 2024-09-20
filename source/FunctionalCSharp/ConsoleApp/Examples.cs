@@ -22,8 +22,7 @@ namespace ConsoleApp
 																				isPremiumCustomer: true);
 
 			var salePriceB = GetProductPriceByExpression(product: currentProduct, 
-																										quantity: 12, 
-																										isPremiumCustomer: true);
+																										quantity: 12, 																								isPremiumCustomer: true);
 		}
 		public decimal GetProductPrice(Product product, 
 																	int quantity, 
@@ -45,7 +44,6 @@ namespace ConsoleApp
 			}
 			return product.RetailPrice * (1 - discountAmount);
 
-
 		}
 		public decimal GetProductPriceByExpression(Product product, int quantity, bool isPremiumCustomer)
 		{
@@ -56,7 +54,6 @@ namespace ConsoleApp
 			// evaluates a Boolean expression and returns the result of one of the two expressions,  depending on whether the Boolean expression evaluates to true or false.
 
 			decimal discountAmount = (quantity > 10 ? .15M : 0) + (isPremiumCustomer ? .05M : 0) ;
-
 		
 			return product.RetailPrice * (1 - discountAmount);
 
