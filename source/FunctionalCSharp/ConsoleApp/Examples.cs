@@ -190,7 +190,7 @@ namespace ConsoleApp
 
 		}
 		public Product AdjustPrice(decimal newPrice) { 
-			return new Product(productName: ProductName, retailPrice: newprice);
+			return new Product(productName: ProductName, retailPrice: newPrice);
 		}
 			#endregion
 		}
