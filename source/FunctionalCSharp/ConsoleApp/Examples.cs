@@ -21,15 +21,22 @@ namespace ConsoleApp
 		#region If Statements
 		private void RunIf() {
 			var currentProduct = new Product(productName: "Microphone", retailPrice: 200M);
-			var salePriceA = GetProductPrice(product: currentProduct, quantity: 12, isPremiumCustomer: true);
+			var salePriceA = GetProductPrice(product: currentProduct, 
+																				quantity: 12, 
+																				isPremiumCustomer: true);
 
-			var salePriceB = GetProductPriceByExpression(product: currentProduct, quantity: 12, isPremiumCustomer: true);
+			var salePriceB = GetProductPriceByExpression(product: currentProduct, 
+																										quantity: 12, 
+																										isPremiumCustomer: true);
 		}
-		public decimal GetProductPrice(Product product, int quantity, bool isPremiumCustomer)
+		public decimal GetProductPrice(Product product, 
+																	int quantity, 
+																	bool isPremiumCustomer)
 		{
 			// statement version
 
-			// note that the purpose of the if statement is to mutate the value of the discountAmount variable
+			// note that the purpose of the if statement
+			// is to mutate the value of the discountAmount variable
 			// note that the discountAmount variable is declared outside the statements
 			decimal discountAmount = 0;
 			if (quantity > 10)
@@ -49,11 +56,12 @@ namespace ConsoleApp
 			// expression version
 			// In this version there is no mutation of variable, and also the code is more compact.
 
-			//	The conditional operator ?:, also known as the ternary conditional operator, 
-			// evaluates a Boolean expression and returns the result of one of the two expressions, depending on whether the Boolean expression evaluates to true or false.
+			// The conditional operator ?:, also known as the ternary conditional operator, 
+			// evaluates a Boolean expression and returns the result of one of the two expressions,  depending on whether the Boolean expression evaluates to true or false.
 
 			decimal discountAmount = (quantity > 10 ? .15M : 0) + (isPremiumCustomer ? .05M : 0);
 
+			// could this be better if I called product.AdjustPrice() method
 			return product.RetailPrice * (1 - discountAmount);
 
 			// expressions are more composable
@@ -184,6 +192,9 @@ namespace ConsoleApp
 			ProductName = productName;
 			RetailPrice = retailPrice;
 
+		}
+		public Product AdjustPrice(decimal newPrice) { 
+			return new Product(productName: ProductName, retailPrice: newprice);
 		}
 			#endregion
 		}
