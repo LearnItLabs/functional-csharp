@@ -65,10 +65,10 @@ namespace ConsoleApp
 
 		#region Switch Statements
 
-		public string GetColorHex(StandardColors colors)
+		public string GetColorHex(StandardColors currentColor)
 		{
 			string hexString = string.Empty;
-			switch (colors)
+			switch (currentColor)
 			{
 				case StandardColors.Red:
 					hexString = "FF0000";
@@ -98,9 +98,9 @@ namespace ConsoleApp
 			return hexString;
 		}
 
-		public string GetColorHexByExpression(StandardColors colors)
+		public string GetColorHexByExpression(StandardColors currentColor)
 		{
-			string hexString = colors switch
+			string hexString = currentColor switch
 			{
 				StandardColors.Red => "FF0000",
 				StandardColors.Orange => "FFA500",
