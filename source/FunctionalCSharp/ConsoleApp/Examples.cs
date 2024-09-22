@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -12,8 +13,9 @@ namespace ConsoleApp
 
 		public void SelectWithNoTransform()
 		{
-			// functional Map == LINQ Select
-			// transform each item in the list
+			// Functional Map == LINQ Select
+			// Apply a function to every item in list
+			// Purpose: To transform the items in the list
 
 			var numbers = Enumerable.Range(1, 50);
 
@@ -22,6 +24,7 @@ namespace ConsoleApp
 
 			// use query expression
 			var queryB = from n in numbers
+									 where n > 0
 									 select n;
 
 			// run the query
@@ -38,25 +41,26 @@ namespace ConsoleApp
 
 		}
 
-		public void SelectWithNumberTransform()
+		public void SelectWithMathTransform()
 		{
-			// functional Map == LINQ Select
-			// perform an action
+			// Functional Map == LINQ Select
+			// Apply a function to every item in list
+			// Purpose: To transform the items in the list
 
 			var numbers = Enumerable.Range(1, 50);
 
-			var queryA = numbers.Select(x => x * 10);
+			var queryA = numbers.Select(x => x * 10); //transform with multiply operation
 
 			var queryB = from n in numbers
 									 select n * 10;
 
-
+			
 			var resultsA = queryA.ToList();
 			var resultsB = queryB.ToList();
-
+			
 		}
 
-		public void SelectProjectToAnotherType()
+		public void SelectTransformToAnotherType()
 		{
 			// functional Map == LINQ Select
 			// perform an action
