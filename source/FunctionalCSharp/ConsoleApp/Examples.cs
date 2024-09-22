@@ -62,8 +62,9 @@ namespace ConsoleApp
 
 		public void SelectTransformToAnotherType()
 		{
-			// functional Map == LINQ Select
-			// perform an action
+			// Functional Map == LINQ Select
+			// Apply a function to every item in list
+			// Purpose: To transform the items in the list
 
 			var xValues = Enumerable.Range(1, 20);
 			var yValues = Enumerable.Range(100, 20);
