@@ -84,14 +84,12 @@ namespace ConsoleApp
 		}
 	}
 
-	public class RayPoint
-	{
-		public int X { get; }
-		public int Y { get; }
-		public RayPoint(int x, int y)
-		{
-			X = x;
-			Y = y;
-		}
+	public class RayPoint(int x, int y) {
+		//C# 12 introduces primary constructors,
+		// a concise syntax to declare constructors  
+		// whose parameters are available anywhere in the body of the type
+		public int X { get; } = x;
+		public int Y { get; } = y;
+	
 	}
 }
