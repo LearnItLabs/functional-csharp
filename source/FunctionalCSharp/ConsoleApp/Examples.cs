@@ -13,15 +13,16 @@ namespace ConsoleApp
 
 			var numbers = ImmutableList.CreateRange<int>(Enumerable.Range(1, 200));
 
-
-			var queryA = numbers.Where(x => x < 20).Select(x => x);
-
-			var queryB = from n in numbers
+			var queryA = from n in numbers
 									 where n < 20 || n > 180
 									 select n;
 
-			var resultsA = queryA.ToList();
-			var resultsB = queryB.ToList();
+			var queryB = numbers.Where(n => n < 20 || n > 180).Select(n => n);
+
+
+
+			var resultsA = queryA.ToImmutableList();
+			var resultsB = queryB.ToImmutableList();
 		}
 
 		public void FilterForPrimeNumbers()
