@@ -17,7 +17,7 @@ namespace ConsoleApp {
 			// LINQ (Aggregate, Sum, Average)
 			// LINQ (Max, Min, Count)
 
-			ImmutableList<int> setA = [5, 4, 1, 3, 9, 8, 6, 7, 2, 12, 24];
+			ImmutableList<int> setA = [5, 4, 2, 3, 9, 8, 6, 7, 2, 12, 24];
 			
 			// list of numbers 5 through 40 (by five)
 			ImmutableList<int> setB =
