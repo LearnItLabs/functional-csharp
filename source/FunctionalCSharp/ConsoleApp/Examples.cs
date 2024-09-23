@@ -38,7 +38,6 @@ namespace ConsoleApp {
 
 		}
 
-
 		public void FlattenListExample() {
 			// Functional bind (Haskell) or flatMap (Scala)
 			// Known as flattening in C#
@@ -50,13 +49,18 @@ namespace ConsoleApp {
 			// SelectMany selects values from a nested collection
 
 			var brandA = new Brand(name: "Fancy-Shoes",
-														 colors: new List<string> { "Red", "Orange" });
+														 colors:  ["Red", "Orange"] ,
+														 socials: ["TikTok", "Instagram"]);
 
 
 			var brandB = new Brand(name: "Lux-Cars",
-														 colors: new List<string> { "Gold", "Silver" });
+														 colors: [ "Gold", "Silver" ],
+														 socials: ["Facebook", "Instagram"]);
 			var brandC = new Brand(name: "Wow-Electronics",
-														colors: new List<string> { "Blue", "Purple" });
+														colors: [ "Blue", "Purple"],
+														 socials: ["Wired", "Wirecutter"]);
+		
+														
 			var brands = ImmutableList<Brand>.Empty;
 			brands = brands.Add(brandA);
 			brands = brands.Add(brandB);
@@ -64,20 +68,23 @@ namespace ConsoleApp {
 
 
 			// this does not produce the results we want
-			var flattenedA = brands.Select(x => x.Colors).ToImmutableList();
-			var flattenedB = brands.SelectMany(x => x.Colors).ToImmutableList();
+			var notFlattened = brands.Select(x => x.Colors).ToImmutableList();
+			var flattenedColors = brands.SelectMany(x => x.Colors).ToImmutableList(); // flat sequence of colors
+			var flattenedBrands = brands.SelectMany(x => x.Colors).ToImmutableList(); // flat sequence of colors
 		}
 	}
 
 	public class Brand {
 		public string Name { get; }
 		public List<string> Colors { get; }
-		public Brand(string name, List<string> colors) {
+		public List<string> Socials { get; }
+		public Brand(string name, List<string> colors,List<string> socials) {
 			Name = name;
 			Colors = colors;
+			Socials = socials;
 
 		}
-	}
+}
 }
 
 
