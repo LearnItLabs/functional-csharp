@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace ConsoleApp
@@ -7,11 +8,11 @@ namespace ConsoleApp
 	{
 		public void FilterSimple()
 		{
-			// functional Filter == LINQ Where
-			// return a subset of the list based
-			// on predicate function
+			// Functional 'filter' is implemented in LINQ as Where.
+			// Returns a subset of the list based on the provided predicate function.
 
-			var numbers = Enumerable.Range(1, 200);
+			var numbers = ImmutableList.CreateRange<int>(Enumerable.Range(1, 200));
+
 
 			var queryA = numbers.Where(x => x < 20).Select(x => x);
 
@@ -25,17 +26,17 @@ namespace ConsoleApp
 
 		public void FilterForPrimeNumbers()
 		{
-			// this predicate determines if
-			// a number is prime
+			// The isPrime predicate determines if
+			// a number is prime.
 
 			Func<int, bool> isPrime = p => Enumerable.Range(2, (int)Math.Sqrt(p) - 1)
 																		.All(divisor => p % divisor != 0);
 
-			var primes =
-				Enumerable.Range(2, 1000 * 1000)
-				.Where(isPrime);
+			var numbers = ImmutableList.CreateRange<int>(Enumerable.Range(2, 1000_000));
 
-			var resultsA = primes.ToList();
+			var q = numbers.Where(isPrime);
+
+			var primes = q.ToImmutableList<int>();
 		}
 	}
 }
