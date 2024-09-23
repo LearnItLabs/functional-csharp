@@ -70,7 +70,7 @@ namespace ConsoleApp {
 			// this does not produce the results we want
 			var notFlattened = brands.Select(x => x.Colors).ToImmutableList();
 			var flattenedColors = brands.SelectMany(x => x.Colors).ToImmutableList(); // flat sequence of colors
-			var flattenedBrands = brands.SelectMany(x => x.Colors).ToImmutableList(); // flat sequence of colors
+			var flattenedSocials = brands.SelectMany(x => x.Socials).ToImmutableList(); // flat sequence of socials
 		}
 	}
 
