@@ -7,12 +7,12 @@ namespace ConsoleApp {
 	internal class Examples {
 		public void FlattenAsProjection() {
 			// SelectMany is also useful for creating
-			// cartesian products from two sequences
+			// Cartesian products from two sequences
 
 			ImmutableList<int> odds = [3, 5, 7];
 			ImmutableList<int> evens = [12, 14, 16];
 
-			// Concat works with two flat sequences, joining them end-to-end.
+			// Concat method works with two flat sequences, joining them end-to-end.
 			var basicConcat = odds.Concat(evens);
 
 
