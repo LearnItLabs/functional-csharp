@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Immutable;
 using System.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 
 namespace ConsoleApp {
 	internal class Examples {
@@ -24,11 +26,15 @@ namespace ConsoleApp {
 			// predefined aggregates
 			var total = setA.Sum();
 			var count = setB.Count();
-
 			var highestNumber = setB.Max();
 
 
-			// custom aggregate
+			// custom aggregate/accumulator
+			// The Aggregate function in LINQ can take up to three arguments, which allows for more complex aggregation scenarios.
+
+			// Seed: The initial accumulator value.
+			// Func: A function that is applied to each element in the sequence, updating the accumulator.
+			// Result Selector: A function applied to the final accumulator value to produce the result.
 
 			var multipleOf = setA.Aggregate((first, second) => first * second);
 
