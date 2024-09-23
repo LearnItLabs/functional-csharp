@@ -9,6 +9,7 @@ namespace ConsoleApp
 			// all demo code is in the repository branches
 			var examples = new Examples();
 			examples.JoinExample();
+			examples.FlattenListExample();
 		
 		
 		}
