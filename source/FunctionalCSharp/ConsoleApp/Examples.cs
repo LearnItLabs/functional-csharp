@@ -1,22 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ConsoleApp {
 	internal class Examples {
-		public void JoinExample() {
-			// SelectMany is also useful for joining similar lists
+		public void FlattenAsProjection() {
+			// SelectMany is also useful for creating
+			// cartesian products from two sequences
 
-			var setA = Enumerable.Range(2, 3);
-			var setB = Enumerable.Range(5, 3);
+			ImmutableList<int> odds = [3, 5, 7];
+			ImmutableList<int> evens = [12, 14, 16];
 
-			var basicSelect = setA.Select(a => setB.Select(b => $"A {a}, B:{b}"));
+			// Concat works with two flat sequences, joining them end-to-end.
+			var basicConcat = odds.Concat(evens);
 
-			var basicJoin = setA.SelectMany(a => setB.Select(b => $"A:{a} B:{b}"));
+
+			var basicCartesian =
+				odds.SelectMany((int x) => evens, (int a, int b) => $"A:{a} B:{b}");
+			#region SelectMany Explained
+			// Here’s what each part does:
+
+			// (int x) => evens: This lambda expression takes each
+			// element x from the odds list and maps it to the entire evens list.
+			// Essentially, for each x in odds, it produces the entire evens list.
+
+			// (int a, int b) => $"A:{a} B:{b}":
+			// This lambda expression takes two parameters, a and b.
+			// Here, a represents an element from the odds list,
+			// and b represents an element from the evens list.
+			// It then creates a string in the format "A:{a} B:{b}".
+			#endregion
 
 
-			var resultsA = basicSelect.ToList();
-			var resultsB = basicJoin.ToList();
+			var concatResult = basicConcat.ToImmutableList();
+			var cartesianResult = basicCartesian.ToImmutableList();
+
 		}
 
 
