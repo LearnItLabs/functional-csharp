@@ -30,7 +30,8 @@ namespace ConsoleApp {
 
 
 			// custom aggregate/accumulator
-			// The Aggregate function in LINQ can take up to three arguments, which allows for more complex aggregation scenarios.
+			// The Aggregate function in LINQ can take up to three arguments,
+			// which allows for more complex aggregation scenarios.
 
 			// Seed: The initial accumulator value.
 			// Func: A function that is applied to each element in the sequence, updating the accumulator.
