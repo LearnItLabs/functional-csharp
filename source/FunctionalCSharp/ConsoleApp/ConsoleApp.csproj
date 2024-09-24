@@ -6,18 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="RobotNames.xml" />
     <None Remove="Robots.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="RobotNames.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <ProjectReference Include="..\RandomLib\RandomLib.csproj" />
-    <Resource Include="Robots.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
 </Project>
