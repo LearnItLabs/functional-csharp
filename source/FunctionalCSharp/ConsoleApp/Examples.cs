@@ -1,61 +1,69 @@
-﻿using System;
+﻿using RandomLib;
+using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Xml.Linq;
 
-namespace ConsoleApp
-{
-	class Examples
-	{
-		// I/O is a side effect
-		// Create separate functions for all I/O work
+namespace ConsoleApp {
+	class Examples {
 
-		// example. OpenFile, UpdateFile
-		// use pure function to perform computations on the file contents.
+		public void CreateRandomIntegers() {
+			// var randomResult = Gen.Next(); // requires seed value
 
-		private const string RobotFileName = "RobotNames.xml";
-		public void DoWork()
-		{
-		
-			var robots = GetRobots();
-			int total = GetTotalWeight(robots);
-			var blueRobots = ImmutableList.Create(robots.Where(x => x.TeamName == "Blue").ToArray());
-			int blueTeamTotal = GetTotalWeight(blueRobots);
+			var result = Gen.Next(124);
+			Console.Write($"OriginalSeed: 124 ");
+			Console.WriteLine($"NewSeed: {result.Seed}, Value: {result.Value} ");
+
+			Console.Write($"OriginalSeed: {result.Seed} ");
+			var newResult = Gen.Next(result.Seed);
+
+			Console.WriteLine($"Seed: {newResult.Seed}, Value: {newResult.Value} ");
+
+			Console.WriteLine(new String('=', 60));
+
+		}
+		public void CreateRandomFromSystemClock() {
+			var ticks = DateTime.Now.Ticks;
+			var result = Gen.Next(ticks);
+			Console.Write($"OriginalSeed:{ticks} ");
+			Console.WriteLine($"NewSeed: {result.Seed}, Value: {result.Value} ");
+
+			Console.Write($"OriginalSeed: {result.Seed} ");
+			var newResult = Gen.Next(result.Seed);
+
+			Console.WriteLine($"Seed: {newResult.Seed}, Value: {newResult.Value} ");
+
+			Console.WriteLine(new String('=', 60));
+		}
+		public void CreateRandomIntegersInRange() {
+
+			var result1 = Gen.Between(low: 1, high: 99, seed: DateTime.Now.Ticks);
+			var result2 = Gen.Between(low: 1, high: 99, seed: result1.Seed);
+			var result3 = Gen.Between(low: 1, high: 99, seed: result2.Seed);
+
+			Console.WriteLine($"{result1.Value},{result2.Value},{result3.Value}");
+
+			Console.WriteLine(new String('=', 60));
 		}
 
-		public int GetTotalWeight(ImmutableList<Robot> robots)
-		{
-			int total = 0;
-			foreach (Robot robot in robots)
-			{
-				total += robot.Weight;
-			}
-			return total;
-		}
-		public ImmutableList<Robot> GetRobots()
-		{
-			var ran = new Random();
-			var xmlDoc = XDocument.Load(RobotFileName);
-			var robots = xmlDoc.Root.Elements("Robot")
-								.Select(x=> new Robot {RobotName= x.Element("RobotName").Value,
-																				TeamName = x.Element("TeamName").Value,
-																				Weight = (int)x.Element("Weight"),
-																				Speed = ran.Next(1, 18),
-																				Strength = ran.Next(1, 18),
-																				Endurance = ran.Next(1, 18)
-								}).ToArray();
-			return ImmutableList.Create(robots);
+		public void CreateRandomOtherTypes() {
+			var bResult = Gen.Next(DateTime.Now.Ticks).AsBool();
+			var dResult = Gen.Next(DateTime.Now.Ticks).AsDouble();
+			var cResult = Gen.Next(DateTime.Now.Ticks).AsChar();
 		}
 
-		public string SaveToFile()
-		{
-			return null;
 
-		
+		public void CreateARandomList() {
+
+			var list = Gen.CreateRandomSet(seed: 123, count: 10,
+																								 low: -125, high: 120).ToList();
+
+
 		}
 
+		public void OrderListRandomly() {
+			var numbers = Enumerable.Range(10,30);
+
+			var results = Gen.ReorderSet(seed: 423, currentSet: numbers);
+		}
 	}
 }

@@ -14,6 +14,7 @@
     <Content Include="RobotNames.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <ProjectReference Include="..\RandomLib\RandomLib.csproj" />
     <Resource Include="Robots.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

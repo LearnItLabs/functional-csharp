@@ -7,7 +7,15 @@ namespace ConsoleApp
 		static void Main(string[] args)
 		{
 			var examples = new Examples();
-			examples.DoWork();
+			examples.CreateRandomIntegers();
+			examples.CreateRandomFromSystemClock();
+			examples.CreateRandomIntegersInRange();
+			examples.CreateRandomOtherTypes();
+		
+			examples.CreateARandomList();
+			examples.OrderListRandomly();
+			
+
 		}
 	}
 }
