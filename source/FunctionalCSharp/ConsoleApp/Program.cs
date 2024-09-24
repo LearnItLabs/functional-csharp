@@ -10,7 +10,9 @@ namespace ConsoleApp
 			var examples = new Examples();
 		
 			examples.AggregateExample();
-		
+			examples.AggregateRobots();
+
+
 		}
 	}
 }
