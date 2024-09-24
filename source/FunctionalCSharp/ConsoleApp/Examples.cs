@@ -41,7 +41,6 @@ namespace ConsoleApp {
 			var result3 = Gen.Between(low: 1, high: 99, seed: result2.Seed);
 
 			Console.WriteLine($"{result1.Value},{result2.Value},{result3.Value}");
-
 			Console.WriteLine(new String('=', 60));
 		}
 
@@ -51,18 +50,14 @@ namespace ConsoleApp {
 			var cResult = Gen.Next(DateTime.Now.Ticks).AsChar();
 		}
 
-
 		public void CreateARandomList() {
 
 			var list = Gen.CreateRandomSet(seed: 123, count: 10,
 																								 low: -125, high: 120).ToList();
-
-
 		}
 
 		public void OrderListRandomly() {
 			var numbers = Enumerable.Range(10,30);
-
 			var results = Gen.ReorderSet(seed: 423, currentSet: numbers);
 		}
 	}
