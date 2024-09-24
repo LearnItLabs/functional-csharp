@@ -49,6 +49,13 @@ namespace ConsoleApp {
 			var cResult = Gen.Next(DateTime.Now.Ticks).AsChar();
 		}
 		public void CreateARandomList() {
+			// Don't use for statement
+			for (int i = 0; i < 10; i++) {
+			 // call Gen.Next (seed)
+			}
+
+			// better approach is to use an expression (LINQ?)
+
 
 			var list = Gen.CreateRandomSet(seed: 123, count: 10,
 																								 low: -125, high: 120).ToList();

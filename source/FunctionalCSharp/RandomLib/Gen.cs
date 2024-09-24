@@ -33,23 +33,25 @@
 																									 int count,
 																									 int low = 0,
 																									 int high = int.MaxValue) {
+			int localSeed = seed;
 			return Enumerable.Range(0, count)
 							 .Select(_ =>
 							 {
-								 var result = Next(seed);
-								 seed = result.NewSeed; // Update the seed for the next iteration (side-effect)
-								 return Between(low, high, seed).Value;
+								 var result = Next(localSeed);
+								 localSeed = result.NewSeed; // Update the seed for the next iteration (side-effect)
+								 return Between(low, high, localSeed).Value;
 							 })
 							 ;
 		}
 		public static IEnumerable<int> ReorderSet(int seed,
 																							IEnumerable<int> currentSet) {
+			int localSeed = seed;
 			return Enumerable.Range(0, currentSet.Count())
 				.OrderBy(_ =>
 				{
-					var result = Next(seed);
-					seed = result.NewSeed; // Update the seed for the next iteration
-					return Next(seed).Value;
+					var result = Next(localSeed);
+					localSeed = result.NewSeed; // Update the seed for the next iteration
+					return Next(localSeed).Value;
 				})
 ;
 		}
