@@ -4,10 +4,10 @@
 
 		private const int Mask = 0x7fffffff;
 		public static RandomResult<int> Next(int seed) {
-			int tempSeed = 0;
+			int tempSeed = seed;
 			tempSeed ^= tempSeed >> 13;
 			tempSeed ^= tempSeed << 18;
-			int result = tempSeed & Mask;
+			int result = tempSeed & Mask; 
 
 			return new RandomResult<int>(result, result);
 		}
@@ -26,7 +26,7 @@
 
 			// Map the result to the specified range [low, high)
 			int value = low + nextInt.Value % (high - low);
-			return new RandomResult<int>(value, nextInt.Seed);
+			return new RandomResult<int>(value, nextInt.NewSeed);
 		}
 
 		public static IEnumerable<int> CreateRandomSet(int seed,
@@ -37,7 +37,7 @@
 							 .Select(_ =>
 							 {
 								 var result = Next(seed);
-								 seed = result.Seed; // Update the seed for the next iteration (side-effect)
+								 seed = result.NewSeed; // Update the seed for the next iteration (side-effect)
 								 return Between(low, high, seed).Value;
 							 })
 							 ;
@@ -48,7 +48,7 @@
 				.OrderBy(_ =>
 				{
 					var result = Next(seed);
-					seed = result.Seed; // Update the seed for the next iteration
+					seed = result.NewSeed; // Update the seed for the next iteration
 					return Next(seed).Value;
 				})
 ;

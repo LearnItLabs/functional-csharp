@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace RandomLib {
 	public class RandomResult<T> {
 		public T Value { get; }
-		public int Seed { get; }
-		public RandomResult(T value, int seed) {
+		public int NewSeed { get; } // 0 to 2,147,483,647 
+		public RandomResult(T value, int newSeed) {
 			Value = value;
-			Seed = seed;
+			NewSeed = newSeed;
 		}
 	}
 }
