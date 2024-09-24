@@ -50,8 +50,9 @@ namespace ConsoleApp {
 		}
 		public void CreateARandomList() {
 			// Don't use for statement
-			for (int i = 0; i < 10; i++) {
-			 // call Gen.Next (seed)
+			for (int i = 0; i < 10; i++)
+			{
+				// call Gen.Next (seed)
 			}
 
 			// better approach is to use an expression (LINQ?)
@@ -61,8 +62,26 @@ namespace ConsoleApp {
 																								 low: -125, high: 120).ToList();
 		}
 		public void OrderListRandomly() {
-			var numbers = Enumerable.Range(10, 30);
-			var results = Gen.ReorderSet(seed: 423, currentSet: numbers);
+			//var numbers = new List<int>(Enumerable.Range(10, 30));
+			//var results = Gen.ReorderSet<int>(seed: DateTime.Now.Ticks, currentSet: numbers);
+
+			var robot1 = new Robot("Alpha", "Crimson");
+			var robot2 = new Robot("Bravo", "Indigo");
+			var robot3 = new Robot("Charlie", "Crimson");
+			var robot4 = new Robot("Delta", "Indigo");
+			var robot5 = new Robot("Echo", "Crimson");
+			var robot6 = new Robot("Foxtrot", "Indigo");
+			List<Robot> robots = [robot1, robot2, robot3, robot4, robot5, robot6];
+
+			var robotsOrderedBy = Gen.ReorderSet<Robot>(seed: DateTime.Now.Ticks, currentSet: robots);
+		}
+	}
+	public class Robot {
+		public string Name { get; }
+		public string TeamName { get; }
+		public Robot(string name, string teamName) {
+			Name = name;
+			TeamName = teamName;
 		}
 	}
 }

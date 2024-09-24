@@ -43,17 +43,18 @@
 							 })
 							 ;
 		}
-		public static IEnumerable<int> ReorderSet(int seed,
-																							IEnumerable<int> currentSet) {
-			int localSeed = seed;
+		public static IEnumerable<T> ReorderSet<T>(long seed,
+																							List<T> currentSet) {
+			int intSeed = (int)(seed % int.MaxValue);
+			int localSeed = intSeed;
 			return Enumerable.Range(0, currentSet.Count())
 				.OrderBy(_ =>
 				{
 					var result = Next(localSeed);
 					localSeed = result.NewSeed; // Update the seed for the next iteration
 					return Next(localSeed).Value;
-				})
-;
+				}).Select(index => currentSet[index]);
+			;
 		}
 
 	}
