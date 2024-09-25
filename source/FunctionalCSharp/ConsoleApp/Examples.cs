@@ -62,6 +62,7 @@ namespace ConsoleApp {
 			var names = ImmutableList.Create<string>("Alpha", "Bravo", "Charlie", "Delta");
 			var greetings = names.MyTransform(Factory.SayGreeting("Hello"));
 			var maxNumbers = numbers.MyTransform(Factory.GetMax(20));
+		
 		}
 
 
