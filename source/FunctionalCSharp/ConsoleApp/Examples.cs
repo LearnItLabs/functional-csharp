@@ -34,6 +34,10 @@ namespace ConsoleApp {
 
 			var subset = moreNumbers.TakeWhile(n => n < 100);
 
+			// tranform the data with Select
+
+			var doubles = numbers.Select(n => (double) n + (double) n/10);
+
 		}
 
 
