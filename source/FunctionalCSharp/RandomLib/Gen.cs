@@ -1,4 +1,6 @@
-﻿namespace RandomLib {
+﻿using System.Collections.Immutable;
+
+namespace RandomLib {
 
 	public class Gen {
 
@@ -43,8 +45,8 @@
 							 })
 							 ;
 		}
-		public static IEnumerable<T> ReorderSet<T>(long seed,
-																							List<T> currentSet) {
+		public static ImmutableList<T> ReorderSet<T>(long seed,
+																							ImmutableList<T> currentSet) {
 			int intSeed = (int)(seed % int.MaxValue);
 			int localSeed = intSeed;
 			return Enumerable.Range(0, currentSet.Count())
@@ -53,7 +55,7 @@
 					var result = Next(localSeed);
 					localSeed = result.NewSeed; // Update the seed for the next iteration
 					return Next(localSeed).Value;
-				}).Select(index => currentSet[index]);
+				}).Select(index => currentSet[index]).ToImmutableList();
 			;
 		}
 

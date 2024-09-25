@@ -1,6 +1,7 @@
 ﻿using RandomLib;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace ConsoleApp {
@@ -59,11 +60,11 @@ namespace ConsoleApp {
 
 
 			var list = Gen.CreateRandomSet(seed: 123, count: 10,
-																								 low: -125, high: 120).ToList();
+																								 low: -125, high: 120).ToImmutableList();
 		}
 		public void OrderListRandomly() {
-			//var numbers = new List<int>(Enumerable.Range(10, 30));
-			//var results = Gen.ReorderSet<int>(seed: DateTime.Now.Ticks, currentSet: numbers);
+			var numbers = ImmutableList.Create<int>([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+			var shuffledInts = Gen.ReorderSet<int>(seed: DateTime.Now.Ticks, currentSet: numbers);
 
 			var robot1 = new Robot("Alpha", "Crimson");
 			var robot2 = new Robot("Bravo", "Indigo");
@@ -71,9 +72,10 @@ namespace ConsoleApp {
 			var robot4 = new Robot("Delta", "Indigo");
 			var robot5 = new Robot("Echo", "Crimson");
 			var robot6 = new Robot("Foxtrot", "Indigo");
-			List<Robot> robots = [robot1, robot2, robot3, robot4, robot5, robot6];
+			ImmutableList<Robot> robots = [robot1, robot2, robot3, robot4, robot5, robot6];
 
-			var robotsOrderedBy = Gen.ReorderSet<Robot>(seed: DateTime.Now.Ticks, currentSet: robots);
+			var shuffledRobots = Gen.ReorderSet<Robot>(seed: DateTime.Now.Ticks,
+																									currentSet: robots);
 		}
 	}
 	public class Robot {
