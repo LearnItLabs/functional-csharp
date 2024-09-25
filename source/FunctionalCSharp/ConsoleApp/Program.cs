@@ -9,6 +9,7 @@ namespace ConsoleApp
 
 			var examples = new Examples();
 			examples.DoWork();
+			examples.LinqExamples();
 		}
 	}
 }
