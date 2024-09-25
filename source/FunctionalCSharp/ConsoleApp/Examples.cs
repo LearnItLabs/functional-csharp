@@ -1,23 +1,23 @@
-﻿using System;
+﻿// Ignore Spelling: Linq
+
+using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace ConsoleApp {
 	class Examples {
 
-		// how C# represents functions
-		// Methods
-		// Delegates
-		// Lambda expressions
 
-		// of these, Delegates and Lambda expressions 
-		// are the most useful for functional programming
 
 
 		public void LinqExamples() {
 			var numbers = Enumerable.Range(1, 120);
 
 			var last = numbers.Last();
+			// a flexible approach
+			// we can specify our own predicate
+			// which alters the behavior of .Last method!
 			var LastWithLambda = numbers.Last(n => n < 40);
 
 			// The Where operator filters the sequence,
@@ -30,7 +30,7 @@ namespace ConsoleApp {
 			// TakeWhile: Returns elements from a sequence 
 			// as long as a specified condition is true, 
 			// and then skips the remaining elements.
-			var moreNumbers = new List<int> { 21, 32, 43, 54, 65, 201, 301, 401, 76, 87, 98 };
+			var moreNumbers = ImmutableList.Create<int>(21, 32, 43, 54, 65, 201, 301, 401, 76, 87, 98);
 
 			var subset = moreNumbers.TakeWhile(n => n < 100);
 
@@ -61,8 +61,8 @@ namespace ConsoleApp {
 			var Added = numbers.MyTransform(Factory.AddTo(3));
 			var maxNumbers = numbers.MyTransform(Factory.GetMax(20));
 		}
-	
+
 
 	}
-	
+
 }
