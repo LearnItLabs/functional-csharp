@@ -7,7 +7,7 @@ namespace ConsoleApp {
 		// use delegates as function arguments
 
 		public static IEnumerable<T> MyWhere<T>(this IEnumerable<T> items,
-																						Func<T, bool> predicate) {
+																						Predicate<T> predicate) {
 			// execute this code
 			// for every item in the enumerable
 			foreach (T item in items){
