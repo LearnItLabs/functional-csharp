@@ -50,11 +50,13 @@ namespace ConsoleApp {
 		}
 
 		public void FunctionReturn() {
-			var numbers = Enumerable.Range(1, 120);
+			var numbers = ImmutableList.Create(60,2,19,44,14,37,14,79,11);
 
 			// var PowersOfThree = numbers.MyTransform(x => x * x * x);
 
 			var Added = numbers.MyTransform(Factory.AddTo(3));
+			var names = ImmutableList.Create<string>("Alpha", "Bravo", "Charlie", "Delta");
+			var greetings = names.MyTransform(Factory.SayGreeting("Hello"));
 			var maxNumbers = numbers.MyTransform(Factory.GetMax(20));
 		}
 

@@ -32,6 +32,6 @@ namespace ConsoleApp {
 		//  Function factory, returns a function
 		public static Func<int, int> AddTo(int n) => i => i + n;
 		public static Func<int, int> GetMax(int n) => i => Math.Max(i, n);
-
+		public static Func<string, string> SayGreeting(string g) => s => $"{g} {s} ";
 	}
 }
